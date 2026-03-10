@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Shelter</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <nav class="nav-main">
+            <div class="nav-top">
+                <div class="nav-logo">
+                    <img class="icon" src="./images/heart-light.png" alt="Pet Shelter logo">
+                    <h1>Pet Shelter</h1>
+                </div>
+
+                <ul class="nav-links">
+                    <li><a href="#">Find a Pet</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><button id="donate-btn"><strong>Donate</strong></button></li>
+                </ul>
+            </div>
+
+            <div class="search-labels">
+                <span>I am looking for a ...</span>
+                <span>in or near...</span>
+            </div>
+
+            <div class="nav-search">
+                <img class="icon" src="./images/paw-light.png" alt="paw print icon">
+
+                <select id="pet-selection-option" name="pet-selection-option">
+                    <option selected hidden disabled>Any pet</option>
+                    <option value="Dog">Dog</option>
+                    <option value="Cat">Cat</option>
+                    <option value="Ferret">Ferret</option>
+                    <option value="Sugar Glider">Sugar Glider</option>
+                </select>
+
+                <img class="icon" src="./images/pin-light.png" alt="location pin icon">
+
+                <input class="city-zip" type="text" placeholder="City or Zip Code" aria-label="City or Zip Code">
+
+                <button class="find-button">Find your new best friend!</button>
+            </div>
+        </nav>
+
+        <main class="main-content">
+            <article class="pet-card">
+                <img class="pet-photo" src="./images/pepper.jpg" alt="Pepper the gray tabby cat">
+                <div class="pet-info">
+                    <h2 class="pet-name">Pepper</h2>
+                    <p class="pet-description">
+                        Pepper is a slightly shy grey tabby, but she really loves showing her human affection.
+                    </p>
+                </div>
+                <div class="pet-actions">
+                    <p><span class="pet-count">3</span> petting(s)</p>
+                    <button class="pet-btn"><strong>Pet Pepper</strong></button>
+                </div>
+            </article>
+
+            <article class="pet-card">
+                <img class="pet-photo" src="./images/bruce.jpg" alt="Bruce the dog">
+                <div class="pet-info">
+                    <h2 class="pet-name">Bruce</h2>
+                    <p class="pet-description">
+                        Bruce is a loyal companion. He loves long walks and cold weather.
+                    </p>
+                </div>
+                <div class="pet-actions">
+                    <p><span class="pet-count">5</span> petting(s)</p>
+                    <button class="pet-btn"><strong>Pet Bruce</strong></button>
+                </div>
+            </article>
+
+            <article class="pet-card">
+                <img class="pet-photo" src="./images/oscar.jpg" alt="Oscar the dog">
+                <div class="pet-info">
+                    <h2 class="pet-name">Oscar</h2>
+                    <p class="pet-description">
+                        Oscar is bright, energetic, and friendly. He is looking for a good home.
+                    </p>
+                </div>
+                <div class="pet-actions">
+                    <p><span class="pet-count">8</span> petting(s)</p>
+                    <button class="pet-btn"><strong>Pet Oscar</strong></button>
+                </div>
+            </article>
+        </main>
+    </div>
+
+    <script src="./scripts/scripts.js"></script>
+</body>
+
+</html>
