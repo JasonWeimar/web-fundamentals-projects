@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GitHub Profile Lookup</title>
+
+    <!--
+    FONTS:
+    Sora = headings/body | DM Mono = usernames/stats
+  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600&family=DM+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- STYLESHEET -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <h1>GitHub <span>Profile</span> Lookup</h1>
+
+    <!-- FORM -->
+    <form class="search-form glass" id="searchForm">
+      <input
+        type="text"
+        id="usernameInput"
+        placeholder="Enter a GitHub username…"
+        autocomplete="off"
+        spellcheck="false"
+      />
+      <button type="submit">Search</button>
+    </form>
+
+    <!-- Status line: loading indicator, errors, empty state messages -->
+    <p class="status-msg" id="statusMsg"></p>
+
+    <!-- PROFILE CARD - Hidden by default -->
+    <div class="profile-card glass" id="profileCard">
+      <div class="card-header">
+        <img id="cardAvatar" src="" alt="Avatar" />
+        <div class="card-identity">
+          <h2 id="cardName"></h2>
+          <div class="login" id="cardLogin"></div>
+        </div>
+      </div>
+
+      <p class="card-bio" id="cardBio"></p>
+
+      <div class="card-stats">
+        <div class="stat">
+          <div class="num" id="cardRepos"></div>
+          <div class="label">Repos</div>
+        </div>
+        <div class="stat">
+          <div class="num" id="cardFollowers"></div>
+          <div class="label">Followers</div>
+        </div>
+        <div class="stat">
+          <div class="num" id="cardFollowing"></div>
+          <div class="label">Following</div>
+        </div>
+      </div>
+
+      <a
+        class="card-link"
+        id="cardLink"
+        href="#"
+        target="_blank"
+        rel="noopener"
+      >
+        View on GitHub →
+      </a>
+    </div>
+
+    <!-- SCRIPT --->
+    <script src="script.js"></script>
+  </body>
+</html>

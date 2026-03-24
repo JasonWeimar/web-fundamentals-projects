@@ -1,0 +1,276 @@
+/* =====================================================
+   1. CSS CUSTOM PROPERTIES/DESIGN TOKENS
+===================================================== */
+:root {
+  /* Background gradient stops */
+  --bg-start: #0f0c29;
+  --bg-mid: #302b63;
+  --bg-end: #24243e;
+
+  /* Glass card appearance */
+  --glass-bg: rgba(255, 255, 255, 0.07);
+  --glass-border: rgba(255, 255, 255, 0.15);
+  --glass-blur: 18px;
+
+  /* Typography */
+  --text-primary: #f0eeff;
+  --text-secondary: #a89ec9;
+  --accent: #b39ddb;
+  --accent-bright: #e040fb;
+
+  /* Shape */
+  --radius-card: 20px;
+  --radius-btn: 12px;
+
+  /* Timing for transitions/animations */
+  --transition: 0.3s ease;
+}
+
+/* =====================================================
+   2. RESET & BASE
+===================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  font-family: "Sora", sans-serif;
+  color: var(--text-primary);
+
+  /* =====================================================
+    GRADIENT BACKGROUND
+  ===================================================== */
+  background: linear-gradient(
+    135deg,
+    var(--bg-start) 0%,
+    var(--bg-mid) 50%,
+    var(--bg-end) 100%
+  );
+
+  /* =====================================================
+  ALIGNMENT 
+  ===================================================== */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  gap: 2rem;
+}
+
+/* =====================================================
+   3. TYPOGRAPHY
+===================================================== */
+h1 {
+  font-size: clamp(1.4rem, 4vw, 2rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  text-align: center;
+}
+/* accent color */
+h1 span {
+  color: var(--accent-bright);
+}
+
+/* =====================================================
+   4. GLASS MORPHISM 
+===================================================== */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur)); /* Required for Safari */
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-card);
+}
+
+/* =====================================================
+   5. SEARCH FORM
+===================================================== */
+.search-form {
+  display: flex;
+  gap: 0.6rem;
+  padding: 0.75rem 1rem;
+  width: 100%;
+  max-width: 460px;
+}
+
+.search-form input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text-primary);
+  font-family: "DM Mono", monospace;
+  font-size: 0.95rem;
+  padding: 0.4rem 0.2rem;
+  caret-color: var(--accent-bright);
+}
+
+.search-form input::placeholder {
+  color: var(--text-secondary);
+  opacity: 0.7;
+}
+
+.search-form button {
+  background: linear-gradient(135deg, #7c3aed, var(--accent-bright));
+  border: none;
+  border-radius: var(--radius-btn);
+  color: #fff;
+  font-family: "Sora", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.55rem 1.2rem;
+  cursor: pointer;
+  transition:
+    opacity var(--transition),
+    transform var(--transition);
+  white-space: nowrap;
+}
+
+.search-form button:hover {
+  opacity: 0.88;
+  transform: translateY(-1px);
+}
+.search-form button:active {
+  transform: translateY(0);
+}
+
+/* =====================================================
+   6. PROFILE CARD
+===================================================== */
+.profile-card {
+  width: 100%;
+  max-width: 460px;
+  padding: 2rem;
+
+  /*
+    Hidden by default — script.js sets display: flex
+    once data has been successfully fetched and injected.
+  */
+  display: none;
+  flex-direction: column;
+  gap: 1.2rem;
+
+  /*
+    Animation: declared here - plays when
+    display switches to flex.
+    `forwards` keeps the final keyframe state after
+    animation ends (prevents snapping back to opacity: 0).
+  */
+  animation: fadeUp 0.45s ease forwards;
+}
+
+/* Slide up + fade in on reveal */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- Avatar + Name row --- */
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.card-header img {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  border: 2px solid var(--glass-border);
+  object-fit: cover; /* crop without distortion */
+}
+
+.card-identity h2 {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.card-identity .login {
+  font-family: "DM Mono", monospace;
+  font-size: 0.8rem;
+  color: var(--accent);
+}
+
+/* --- Bio --- */
+.card-bio {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  border-left: 2px solid var(--accent);
+  padding-left: 0.85rem;
+}
+
+/* --- Stats row --- */
+.card-stats {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.stat {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  padding: 0.7rem 0.5rem;
+  text-align: center;
+}
+
+.stat .num {
+  font-family: "DM Mono", monospace;
+  font-size: 1.15rem;
+  font-weight: 500;
+}
+
+.stat .label {
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+  margin-top: 0.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* --- GitHub link --- */
+.card-link {
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  color: var(--text-primary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.65rem 1rem;
+  border-radius: var(--radius-btn);
+  border: 1px solid var(--glass-border);
+  background: rgba(255, 255, 255, 0.05);
+  transition:
+    background var(--transition),
+    border-color var(--transition);
+}
+
+.card-link:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--accent);
+}
+
+/* =====================================================
+   7. STATUS MESSAGE  (errors / loading text)
+===================================================== */
+.status-msg {
+  font-family: "DM Mono", monospace;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  text-align: center;
+  min-height: 1.2rem; /* reserves space so layout doesn't jump */
+  max-width: 460px;
+}
