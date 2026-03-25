@@ -4,6 +4,10 @@
 
 ---
 
+![GitHub Profile Lookup-main](main-populated.png)
+
+---
+
 ## Overview
 
 A lightweight front-end project that queries the GitHub Users REST API and renders profile data into a glass-morphism card. Built as a deliberate API/AJAX refresher — the code is heavily annotated to walk through every step of the request lifecycle: form event capture, `fetch()`, Promise resolution, JSON parsing, cherry-picking fields, and DOM injection.
